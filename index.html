@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бесполезная Инфа</title>
+    <title>Trash Facts Pro</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="box">
-        <h1>🗑️ Музей Бесполезности</h1>
-        <div id="fact-box">
-            <p id="fact">Нажми на кнопку, чтобы узнать бред</p>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <span class="badge">БЕСПОЛЕЗНО</span>
+                <div class="counter">Потрачено: <span id="sec">0</span>с</div>
+            </div>
+            
+            <div class="content">
+                <p id="fact">Нажми на кнопку, чтобы деградировать...</p>
+            </div>
+
+            <button id="next-btn">ПОЛУЧИТЬ ПОРЦИЮ БРЕДА</button>
         </div>
-        <button id="next-btn">Узнать хрень</button>
-        <p class="timer">Вы тратите время уже: <span id="sec">0</span> сек.</p>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
-
