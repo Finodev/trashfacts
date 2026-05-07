@@ -32,22 +32,31 @@ const facts = [
     "Кошка села на такси, 25 баксов не проси.",
     "Ехал грека через реку, видит грека — череп 45, сунул грека руку в реку, а там @finodev опять.",
     "Раз, два, три, четыре, пять, вышел домик погулять, а за домиком забор, там живет вор-помидор.",
-    "фа пепе шнейне.",
-    "ехал пепе через шнейне.",
     "Белка прыгнула на ветку, потеряла табуретку.",
     "Плыл сапог по океану, передал привет барану."
-];
-
 ];
 
 const btn = document.getElementById('next-btn');
 const factDisplay = document.getElementById('fact');
 const secDisplay = document.getElementById('sec');
+const phrasesDisplay = document.getElementById('total-phrases');
+const wordsDisplay = document.getElementById('total-words');
+
+// Функция подсчета статистики
+function updateStats() {
+    phrasesDisplay.innerText = facts.length;
+    let wordCount = 0;
+    facts.forEach(text => {
+        wordCount += text.split(/\s+/).filter(word => word.length > 0).length;
+    });
+    wordsDisplay.innerText = wordCount;
+}
+
+// Запускаем подсчет сразу
+updateStats();
 
 btn.addEventListener('click', () => {
-    // Добавляем эффект исчезновения перед сменой текста
     factDisplay.style.opacity = 0;
-    
     setTimeout(() => {
         const randomFact = facts[Math.floor(Math.random() * facts.length)];
         factDisplay.innerText = randomFact;
@@ -55,10 +64,6 @@ btn.addEventListener('click', () => {
     }, 200);
 });
 
-// Плавное появление текста
-factDisplay.style.transition = "opacity 0.2s";
-
-// Таймер жизни
 let seconds = 0;
 setInterval(() => {
     seconds++;
